@@ -52,7 +52,7 @@ footer{
 
 nav {
     background-color: green;
-    @include flex(row, end, end);
+    @include flex(row, flex-end, flex-end);
     gap: 50px;
     height: 100%;
     width: 100%;
@@ -73,8 +73,10 @@ nav {
         z-index: 3;
     }
 }
-#home-button {
+#home-button-link {
     margin-right: auto;
+}
+#home-button {
     height: 1.8rem;
     font-size: 1.6rem;
     text-shadow: 0px 4px 10px rgb(46, 46, 46);
