@@ -1,3 +1,5 @@
+
+
 // CLASS    CLASS   CLASS   CLASS   CLASS
 class GlobalNav {
     constructor(visibleLink){
@@ -13,28 +15,27 @@ const globalNavInstances = {
         newLinkIcon('index.html', 'home-button-link', 'home-button', 'fa-solid fa-house')
     ),
     home: new GlobalNav (
-        newLinkText('home', 'index.html', 'home-text')
+        newLinkText('home', 'index.html', 'home-text', 'header-link')
     ),
     about: new GlobalNav (
-        newLinkText('about', 'about.html')
+        newLinkText('about', 'about.html', '', 'header-link')
     ),
     projects: new GlobalNav (
-        newLinkText('projects', 'projects.html')
+        newLinkText('projects', 'projects.html', '', 'header-link')
     ),
     contact: new GlobalNav (
-        newLinkText('contact', '#')
+        newLinkText('contact', '#', '', 'header-link')
     )
 }
 
 const globalNavArray = Object.values(globalNavInstances);
 
 const createNav = () => {
-    nav.append(barsIcon, xmarkIcon);
     globalNavArray.forEach(link=>{
         const navElement = link.renderNavElement();
         nav.append(navElement)
     })
-    header.append(nav);
+    header.append(nav, barsIcon, xmarkIcon);
 }
 
 
@@ -52,7 +53,7 @@ barsIcon.addEventListener('click', () => {
 xmarkIcon.addEventListener('click', () => {
     nav.style.opacity = '0';
     nav.style.visibility = 'hidden';
-    nav.style.transition = 'opacity 0.4s ease, visibility 0.4s';
+    nav.style.transition = 'opacity 0.1s ease, visibility 0.1s';
     barsIcon.style.display = 'block'; 
     xmarkIcon.style.display = 'none'; 
 });
